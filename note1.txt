@@ -1,0 +1,5 @@
+"fcf96d261c43bfdb303f8b7cc2394c0e"
+http -A bearer --auth fcf96d261c43bfdb303f8b7cc2394c0e GET http://localhost:5000/api/users/3
+http -A bearer --auth <token> DELETE http://localhost:5000/api/tokens
+
+http -A bearer --auth fcf96d261c43bfdb303f8b7cc2394c0e POST http://localhost:5000/api/users/3 "body=Hello everyone"

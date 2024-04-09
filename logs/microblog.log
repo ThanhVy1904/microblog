@@ -1,0 +1,119 @@
+2024-01-16 15:48:49,543 ERROR: Exception on /api/users/3 [POST] [in /Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: post.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/app/api/users.py", line 104, in create_post
+    db.session.commit()
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1226, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: post.user_id
+[SQL: INSERT INTO post (body, timestamp, user_id, language) VALUES (?, ?, ?, ?)]
+[parameters: ('Hello everyone', '2024-01-16 08:48:49.543102', None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-01-16 16:02:50,471 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-16 16:07:18,761 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-16 16:21:49,170 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-16 16:22:01,758 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-17 17:15:28,552 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-18 16:19:29,646 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-18 16:21:08,370 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-18 16:29:29,342 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]
+2024-01-18 16:29:40,563 ERROR: Exception on /search [GET] [in /Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/app/main/routes.py", line 151, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/app/models.py", line 24, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/thanhvy/Documents/microblog/app/search.py", line 20, in query_index
+    if not current_app.elasticsearch:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Flask' object has no attribute 'elasticsearch'
+2024-01-18 17:13:39,093 INFO: Microblog startup [in /Users/thanhvy/Documents/microblog/app/__init__.py:90]

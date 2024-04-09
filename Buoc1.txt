@@ -1,0 +1,58 @@
+source venv/bin/activate
+pip install flask
+
+>>> import flask
+
+export FLASK_APP=microblog.py
+flask run
+
+
+query = sa.select(User)
+>>> users = db.session.scalars(query).all()
+>>> users
+import sqlalchemy as sa
+
+from app.search import add_to_index, remove_from_index, query_index
+import sqlalchemy as sa
+for post in db.session.scalars(sa.select(Post)):
+...     add_to_index('posts', post)
+query_index('posts', 'tui', 1, 100)
+
+DJxZ3*PlQd48fknE3862
+
+✅ Elasticsearch security features have been automatically configured!
+✅ Authentication is enabled and cluster connections are encrypted.
+
+ℹ️  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
+  pfftOtPeMpLJzxfezg4l
+
+ℹ️  HTTP CA certificate SHA-256 fingerprint:
+  22900fd7c918b88456d8214d073d624f011c7914a66225a0e8dfaa95c1811883
+
+ℹ️  Configure Kibana to use this cluster:
+• Run Kibana and click the configuration link in the terminal when Kibana starts.
+• Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjExLjMiLCJhZHIiOlsiMTkyLjE2OC4wLjEwOjkyMDAiXSwiZmdyIjoiMjI5MDBmZDdjOTE4Yjg4NDU2ZDgyMTRkMDczZDYyNGYwMTFjNzkxNGE2NjIyNWEwZThkZmFhOTVjMTgxMTg4MyIsImtleSI6InI5X1Z5WXdCcW5nQWpLbHp5djgxOnZOVkJuUU12UldPNk1STE9VZllNWWcifQ==
+
+ℹ️  Configure other nodes to join this cluster:
+• On this node:
+  ⁃ Create an enrollment token with `bin/elasticsearch-create-enrollment-token -s node`.
+  ⁃ Uncomment the transport.host setting at the end of config/elasticsearch.yml.
+  ⁃ Restart Elasticsearch.
+• On other nodes:
+  ⁃ Start Elasticsearch with `bin/elasticsearch --enrollment-token <token>`, using the enrollment token that you generated.
+
+
+
+from elasticsearch import Elasticsearch
+es = Elasticsearch('https://localhost:9200')
+es.index(index='my_index', id=1, body={'text': 'this is a test'})
+
+docker run --name elasticsearch --rm -p 9200:9200 \
+    --memory="2GB" \
+    -e "discovery.type=single-node" -e "xpack.security.enabled=false" \
+    docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+
+docker run --rm -p 9200:9200 -p 9300:9300 -e "xpack.security.enabled=false" -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:8.7.0
+curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.11.1-darwin-x86_64.tar.gz.sha512 | shasum -a 512 -c -
+tar -xzf elasticsearch-8.11.1-darwin-x86_64.tar.gz
